@@ -119,33 +119,36 @@ app_license = "MIT"
 # Hook on document methods and events
 
 # doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
+# 	"Employee": {
+# 		"on_update": "soft.controller.todo_cronjob.create_todo",    
+		 
+# 	}
 # }
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"soft.tasks.all"
-#	],
-#	"daily": [
-#		"soft.tasks.daily"
-#	],
-#	"hourly": [
-#		"soft.tasks.hourly"
-#	],
-#	"weekly": [
-#		"soft.tasks.weekly"
-#	],
-#	"monthly": [
-#		"soft.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+    
+	"cron": {
+        "0 15 * * * ": [ "soft.controller.todo_cronjob.create_todo" ]
+	},
+	# "all": [
+	# 	"soft.tasks.all"
+	# ],
+	# "daily": [
+	# 	"soft.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"soft.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"soft.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"soft.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
